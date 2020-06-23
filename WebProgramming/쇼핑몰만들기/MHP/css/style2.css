@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+body.body_pay{
+	margin:20px;
+	font-size:12px;
+}
+
+form.form_pay{
+	width:600px;
+	margin:10px;
+	padding:10px;
+}
+
+ul.km_footer{
+	list-style-type: none;
+	font-size: 12px;
+	font-family: 'glyphicons-halflings-regular' 'bold';
+}
+
+.mySlides {
+            display: none;
+}
+
+p.title{
+	font-family:'Roboto';
+	font-weight:700;
+	line-height:1.1em;
+	color:#666;
+	margin-left: 180px;
+	margin-bottom: 20px;
+}
+
+div.img {
+    margin: 40px;
+    margin-bottom: 50px;
+    border: 0px solid #ccc;
+    width: 250px;
+    float:left;
+    opacity:1.0;
+    filter: alpha(opacity=100);
+}
+
+
+
+div.img:hover {
+    border: 0px solid #777;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+
+div.img img {
+    width: 100%;
+    height: auto; 
+}
+div.img img2{
+	width: 250px;
+	height:200px;
+}
+
+div.desc {
+    padding: 0px;
+    text-align: center;
+    font-size: 10px;
+}
+
+h1.detail_title{
+	margin-top:30px;
+	margin-left:20px;
+	margin-bottom:30px;
+	font-size:20px;
+	
+	
+}
+div.detail{
+	margin-left:10px;
+	margin-top:5px;
+	margin-bottom:3px;
+	font-size:13px;
+}
+td.detail{
+	font-size:12px;
+	margin-top:3px;
+	margin-bottom:3px;
+}
+fieldset.detail{
+	width:380px;
+	border-style:none;
+}
+button.detail_btn{
+	background-color: white; 
+    color: black; 
+    border: 1px solid #808080;
+    width:20px;
+    height:20px;
+    text-align:center;
+    margin-left:10px;
+}
+
+
+button.buy{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+
+button.buy:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+
+button.buy:before,button.buy:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+
+button.buy:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+
+button.buy:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}

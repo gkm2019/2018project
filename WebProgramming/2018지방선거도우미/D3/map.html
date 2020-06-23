@@ -1,0 +1,206 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>벡터맵을 활용한 우리나라 지도</title>
+
+    <!--<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/base/jquery-ui.css" />-->
+    <link rel="stylesheet" href="geo.css">
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="d3-geo.min.js"></script>
+    <script type="text/javascript" src="d3.geo.projection.min.js"></script>
+    <script type="text/javascript" src="d3.v3.min.js"></script>
+
+</head>
+<body>
+    <div id="geo">
+        <div id="container">
+
+            <!--<div id="radio">
+            <span class="title">지명표시</span>
+            <input type="radio" id="radio1" name="radio" value="on" checked><label for="radio1">On</label>
+            <input type="radio" id="radio2" name="radio" value="off"><label for="radio2">Off</label>
+        </div>-->
+
+            <div id="control" class="ui-widget-header ui-corner-all" style="top:50px;">
+                <button id="zoomin">확대</button>
+                <button id="zoomout">축소</button>
+            </div>
+
+        </div>
+    </div>
+    <div id="dashboard">
+        <p>dd</p>
+    </div>
+
+    <script>
+        var width = 700,
+            height = 700,
+            initialScale = 5500,
+            initialX = -11900,
+            initialY = 4050,
+            centered,
+            labels;
+
+
+        var projection = d3.geo.mercator()
+            .scale(initialScale)
+            .translate([initialX, initialY]);
+
+        var path = d3.geo.path()
+            .projection(projection);
+
+        var zoom = d3.behavior.zoom()
+            .translate(projection.translate())
+            .scale(projection.scale())
+            .scaleExtent([height, 800 * height])
+            .on("zoom", zoom);
+
+
+        var svg = d3.select("#container").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr('id', 'map');
+
+
+        var states = svg.append("g")
+            .attr("id", "states")
+            .call(zoom);
+
+        states.append("rect")
+            .attr("class", "background")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("fill", "white");
+
+
+
+        d3.json("koreaMap.json", function (err, json) {
+            if (err)
+                console.log("error fetching data");
+
+            //지도에 링크달기
+            states.selectAll("path")
+                .data(json.features)
+                .enter()
+                .append("a")
+                .attr("xlink:href", "http://www.google.com")
+                .append("path")
+                .attr("d", path)
+                .attr("id", function (d) { return 'path-' + d.id; });
+
+
+                //states.selectAll("path")
+                //    .data(json.features)
+                //    .enter()
+                //    .append("path")
+                //    .attr("d", path)
+                //    .attr("id", function (d) { return 'path-' + d.id; })
+                //    .on("click", click);
+
+
+            labels = states.selectAll("text")
+                .data(json.features)
+                .enter().append("text")
+                .attr("transform", labelsTransform)
+                .attr("id", function (d) {
+                    return 'label-' + d.id;
+                })
+                .attr('text-anchor', 'middle')
+                .attr("dy", ".35em")
+                .on("click", click)
+                .text(function (d) {
+                    switch (d.id) {
+                        case 0:
+                            return "제주도";
+                        case 1:
+                            return "경남";
+                        case 2:
+                            return "경북";
+                        case 3:
+                            return "전남";
+                        case 4:
+                            return "전북";
+                        case 5:
+                            return "충남";
+                        case 6:
+                            return "충북";
+                        case 7:
+                            return "강원";
+                        case 8:
+                            return "경기";
+                        case 9:
+                            return "울산";
+                        case 10:
+                            return "대전";
+                        case 11:
+                            return "광주";
+                        case 12:
+                            return "인천";
+                        case 13:
+                            return "대구";
+                        case 14:
+                            return "부산";
+                        case 15:
+                            return "서울";
+                    }
+                    return d.properties.Name;
+                });
+        }); 
+
+
+
+        function click(d) {
+            var x, y, k;
+
+            if (d && centered !== d) {
+                var centroid = path.centroid(d);
+                x = centroid[0];
+                y = centroid[1];
+                k = 4;
+                centered = d;
+            } else {
+                x = width / 2;
+                y = height / 2;
+                k = 1;
+                centered = null;
+            }
+
+            states.selectAll("path")
+                .classed("active", centered && function (d) { return d === centered; });
+
+
+            //지도 확대
+            //states.transition()
+            //    .duration(1000)
+            //    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+            //    .style("stroke-width", 1.5 / k + "px");
+        }
+
+
+        //function zoom() {
+        //    projection.translate(d3.event.translate).scale(d3.event.scale);
+        //    states.selectAll("path").attr("d", path);
+
+        //    labels.attr("transform", labelsTransform);
+        //}
+
+        function labelsTransform(d) {
+            console.log(path.centroid(d));
+
+            if (d.id == 8) {
+                var arr = path.centroid(d);
+                arr[1] += (d3.event && d3.event.scale) ? (d3.event.scale / height + 20) : (initialScale / height + 20);
+
+                return "translate(" + arr + ")";
+            } else {
+                return "translate(" + path.centroid(d) + ")";
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+"age":[
+{"candidate": "박남춘","freq": {"twenty": 77, "thirty": 83, "fourty": 96, "fifty": 94, "sixty": 79} },
+  {"candidate": "유정복","freq": {"twenty": 10,"thirty": 18,"fourty": 18,"fifty": 49,"sixty": 76}},
+  {"candidate": "문병호","freq": {"twenty": 6,"thirty": 2,"fourty": 6,"fifty": 8,"sixty": 6}},
+  {"candidate": "김응호","freq": {"twenty": 4,"thirty": 8,"fourty": 5,"fifty": 2,"sixty": 4}},
+  {"candidate": "else","freq": {"twenty": 55,"thirty": 26,"fourty": 23,"fifty": 19,"sixty": 26}}
+],
+
+"gender":[
+  {"candidate": "박남춘","freq": {"man": 240,"woman": 194 } },
+  {"candidate": "유정복","freq": {"man": 108,"woman": 61}},
+  {"candidate": "문병호","freq": {"man": 21,"woman": 8}},
+  {"candidate": "김응호","freq": {"man": 11,"woman": 13}},
+  {"candidate": "else","freq": {"man": 69,"woman": 75}}
+],
+
+"job":[
+{"candidate":"박남춘","freq":{"A":1,"B":65,"C":72,"D":135,"E":40,"F":27,"G":45}},
+{"candidate":"유정복","freq":{"A":1,"B":37,"C":25,"D":28,"E":28,"F":1,"G":23}},
+{"candidate":"문병호","freq":{"A":0,"B":5,"C":8,"D":4,"E":3,"F":3,"G":6}},
+{"candidate":"김응호","freq":{"A":0,"B":4,"C":5,"D":9,"E":1,"F":4,"G":1}},
+{"candidate":"기타","freq":{"A":1,"B":23,"C":46,"D":58,"E":36,"F":20,"G":33}}
+]
+}

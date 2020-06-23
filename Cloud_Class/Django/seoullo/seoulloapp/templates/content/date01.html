@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>date01</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h2>2018-06-01 시간대별 총 방문자 수</h2>
+
+<table>
+
+    <tr style="background-color: coral;">
+        <th>0시</th><th>1시</th><th>2시</th><th>3시</th><th>4시</th><th>5시</th><th>6시</th><th>7시</th><th>8시</th>
+        <th>9시</th><th>10시</th><th>11시</th><th>12시</th><th>13시</th><th>14시</th><th>15시</th><th>16시</th><th>17시</th>
+        <th>18시</th><th>19시</th><th>20시</th><th>21시</th><th>22시</th><th>23시</th>
+    </tr>
+    <tr>
+        {% for vt in vt %}
+        <th>{{vt}}명</th>
+        {% endfor %}
+    </tr>
+
+</table>
+
+  <table id="date01">
+      <tr style="background-color:coral;">
+          <th>날짜</th>
+          <th><p style="color:blue;">장미정원에<p> 자주 방문하는 사람 (하루에 5번이상 방문한 방문자 수)</th>
+      </tr>
+      {% for lst in vf %}
+      <tr>
+          <td>2018-06-{{forloop.counter}}</td><td>{{lst}}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+          <td><h3>6월 한달 간 장미정원을 자주 방문한 사람의 total</h3></td><td>{{total}}</td>
+      </tr>
+  </table>
+
+<h2>2018-06-01월 장미정원을 5번 이상 방문한 사람들이 평균적으로 머무르는 시간</h2>
+<table>
+    <tr style="background-color:coral;">
+        <th>id</th><th>평균 시간(분)</th>
+    </tr>
+    {% for vt_avg in vt_avg %}
+    <tr>
+        <td>{{vt_avg.visitor_id}}</td><td>{{vt_avg.T}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+"age":[
+  {"candidate": "¹Ú¿ø¼ø","freq": {"twenty": 65, "thirty": 96, "fourty": 101, "fifty": 83, "sixty": 86} },
+  {"candidate": "±è¹®¼ö","freq": {"twenty": 11,"thirty": 14,"fourty": 17,"fifty": 29,"sixty": 54}},
+  {"candidate": "¾ÈÃ¶¼ö","freq": {"twenty": 26,"thirty": 13,"fourty": 17,"fifty": 24,"sixty": 24}},
+  {"candidate": "±èÁ¾¹Î","freq": {"twenty": 4,"thirty": 0,"fourty": 2,"fifty": 1,"sixty": 2}},
+  {"candidate": "else","freq": {"twenty": 44,"thirty": 24,"fourty": 11,"fifty": 15,"sixty": 37}}
+],
+
+"gender":[
+  {"candidate": "¹Ú¿ø¼ø","freq": {"man": 239,"woman": 196 } },
+  {"candidate": "±è¹®¼ö","freq": {"man": 64,"woman": 58}},
+  {"candidate": "¾ÈÃ¶¼ö","freq": {"man": 65,"woman": 42}},
+  {"candidate": "±èÁ¾¹Î","freq": {"man": 4,"woman": 4}},
+  {"candidate": "else","freq": {"man": 56,"woman": 72}}
+],
+
+"job":[
+{"candidate":"¹Ú¿ø¼ø","freq":{"A":1,"B":86,"C":59,"D":166,"E":58,"F":25,"G":35}},
+{"candidate":"±è¹®¼ö","freq":{"A":0,"B":29,"C":3,"D":30,"E":29,"F":4,"G":24}},
+{"candidate":"¾ÈÃ¶¼ö","freq":{"A":0,"B":16,"C":20,"D":30,"E":14,"F":17,"G":11}},
+{"candidate":"±èÁ¾¹Î","freq":{"A":0,"B":0,"C":0,"D":6,"E":2,"F":1,"G":0}},
+{"candidate":"±âÅ¸","freq":{"A":0,"B":20,"C":21,"D":35,"E":23,"F":21,"G":14}}
+]
+}

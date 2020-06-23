@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>detail_page_1</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Bootstrap 3 template for corporate business" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+   
+	<!-- css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/cubeportfolio.min.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/style2.css" rel="stylesheet" />
+	<link href="plugins/flexslider/flexslider.css" rel="stylesheet" media="screen" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ 	<link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
+ 	
+	<!-- Theme skin -->
+	<link id="t-colors" href="skins/default.css" rel="stylesheet" />
+
+	<!-- boxed bg -->
+	<link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
+
+<!-- ========================수량, total 계산하는 script=============================================================== -->
+	<script>
+		function down(num){
+		    count.value--;
+		    myform.total.value=count.value*56000;
+		}	
+		
+		function up(num){
+			count.value++;
+			myform.total.value=count.value*56000;
+		}
+		
+
+</script>
+
+<!-- ======================================================================================= -->
+
+
+</head>
+<body>
+
+	<div class="wrapper">
+	<header>
+	
+	</header>
+	<!-- =============================================header end================================================ -->
+	<section id="content">
+	<div class="container">
+	<h1 class="detail_title">Detail Page</h1>
+   
+   <img class="detail" src="//dailymarket.kr/web/product/medium/201804/2026_shop1_498242.jpg" width="400" height="330">
+   <div class="detail">cotton overall pants<br></div>
+   <div class="detail">56,000</div>
+   
+   
+   	 <table style="border-style:none;">
+            <tbody><tr><th scope="row"><div class="detail" style="margin-right:80px;">size</div></th>
+			<td class="detail"><select name="size">
+			<option value="*">- [필수] 옵션을 선택해 주세요 -</option>
+			<option value="**">-------------------</option>
+			<optgroup label="size">
+			<option value="">S</option>
+			<option value="">M</option>
+			<option value="">L</option>
+			
+			</optgroup>
+			</select>
+			</td>
+			</tr>	
+   			</tbody>
+   			</table>
+   			
+   			<div class="detail">수량
+   			<button class="detail_btn" onclick="down('-')" style="margin-left:100px;">-</button>
+   			<input type="text" id="count" name="count_name" style="width:20px; border-style:none; text-align:center;" value="0">
+   			<button class="detail_btn" onclick="up('+')">+</button>
+   			</div>
+										    
+   			<form name="myform" id="total_price">
+			<fieldset class="detail">
+			
+			<strong style="margin-top:5px; margin-bottom:5px;">Total</strong>
+			<input type="text" id="total" style="width:100px; margin-left:80px; border-style:none;" value="0"><br>
+			
+			</fieldset>
+			</form>
+			
+ 
+   			<button class="buy" type="button" onclick="location.href='buypage.html'">BUY NOW</button>
+   			
+   			
+   			
+   	
+   	
+   			
+	</div>
+	</section>
+		
+	<!-- ============================================footer start========================================================== -->
+	<footer>
+	
+	</footer>
+	</div>
+
+</body>
+</html>
